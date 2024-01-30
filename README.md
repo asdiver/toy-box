@@ -1,7 +1,27 @@
-# Vue 3 + Vite
+# electron学习记录
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## 基础
 
-## Recommended IDE Setup
+角色：将web前端的技术迁移至C/S架构中，让web前端开发者的手伸到桌面端大展身手。
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+大致原理：浏览器主要由一个浏览器进程和多个渲染进程，而electron参考了浏览器架构，将node和浏览器进程进行融合，称为主线程，渲染进程不变。
+
+[相关文章](https://juejin.cn/post/7103337772424888356)
+
+## 与Vue结合
+
+官方提供了开发集成方案以保证和在web浏览器开发无大的区别，包含了我想要的vite、vue、typescript [相关文章](https://www.electronforge.io/config/makers) 但是此项目不支持pnpm包管理
+
+## 工具集
+
+electron-connect：electron热更新
+
+[electron-toolkit](https://github.com/alex8088/electron-toolkit/tree/master)：集成工具
+
+## electron和vite的集成
+
+网上已经有对应的脚手架[快速开始 | electron-vite](https://cn.electron-vite.org/guide/) 但是想探索一下相关原理，尝试自己打通开发基建。
+
+### 理论
+
+vite主要的功能是提供开发服务器调试和前端资源打包，electron通过win.loadFile加载本地render文件，但在开发阶段可以使用win.loadURL加载http服务器地址，同时也用上了vite的HMR功能。
