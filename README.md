@@ -25,3 +25,15 @@ electron-connect：electron热更新
 ### 理论
 
 vite主要的功能是提供开发服务器调试和前端资源打包，electron通过win.loadFile加载本地render文件，但在开发阶段可以使用win.loadURL加载http服务器地址，同时也用上了vite的HMR功能。
+
+### 实践
+
+相关代码：
+
+/scripts/vite-plugin-electron-dev.js
+
+/main/src/main/index.js
+
+/vite.config.js（浏览器获取资源的方式从http转为file协议 所有资源前缀改为相对路径）
+
+## 其他集成

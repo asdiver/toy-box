@@ -7,7 +7,9 @@ import { join } from 'path'
 export default defineConfig(({ command, mode, isSsrBuild, isPreview }) => {
   const baseConfig = {
     plugins: [vue(),controlElectron()],
-    root: join(process.cwd(),"src","render")
+    root: join(process.cwd(),"src","render"),
+    // file协议相对路径
+    base:"./"
   }
 
   return baseConfig

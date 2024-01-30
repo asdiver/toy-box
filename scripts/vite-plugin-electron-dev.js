@@ -25,10 +25,10 @@ export default () => ({
       
       //两个进程同步关闭
       electron.on('exit', () => {
-        process.exitCode()
+        process.exit()
       });
       process.on("exit",()=>{
-        electron.exitCode()
+        electron.kill()
       })
     })
     
