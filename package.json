@@ -2,11 +2,9 @@
   "name": "toy-box",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
   "main": "./src/main/index.js",
   "author": "asdiver",
   "description": "toy-box",
-  "types": "module",
   "scripts": {
     "dev": "chcp 65001 && vite",
     "dev:electron": "electron .",

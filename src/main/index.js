@@ -1,10 +1,14 @@
-import { app, BrowserWindow } from "electron";
-import { electronApp, optimizer, is } from "@electron-toolkit/utils";
+const { resolve } = require("node:path");
+const { app, BrowserWindow, ipcMain } = require("electron");
+const { electronApp, optimizer, is } = require("@electron-toolkit/utils");
 
 const createWindow = () => {
   const win = new BrowserWindow({
     width: 800,
     height: 600,
+    webPreferences: {
+      preload: resolve(__dirname, "..", "preload", "index.js"),
+    },
   });
 
   // 判断生产环境和开发环境
@@ -20,6 +24,10 @@ app.on("browser-window-created", (_, window) => {
 });
 
 app.whenReady().then(() => {
+  ipcMain.handle("test", (e, ...arr) => {
+    console.log(arr);
+    return "你好";
+  });
   createWindow();
 });
 

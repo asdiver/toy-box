@@ -1,9 +1,8 @@
 <script setup>
-const x = 1;
-console.log(x);
-if (x === 1) {
-  console.log("test");
-}
+console.log(window.electronAPI);
+window.electronAPI.emit("test", 1, 2, 3).then((...arr) => {
+  console.log(arr);
+});
 </script>
 
 <template>
