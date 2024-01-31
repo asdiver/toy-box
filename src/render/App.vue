@@ -1,16 +1,13 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+
 </script>
 
 <template>
   <div>
-    <a href="https://vitejs.dev" target="_blank">
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      
-    </a>
+    <router-link to="/">Go to Home</router-link>
+    <router-link to="/about">Go to About</router-link>
+    <RouterView></RouterView>
   </div>
-  <HelloWorld msg="Vite + Vue" />
 </template>
 
 <style scoped>

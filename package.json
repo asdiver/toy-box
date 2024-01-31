@@ -6,23 +6,21 @@
   "main": "./src/main/index.js",
   "author": "asdiver",
   "description": "toy-box",
+  "types": "module",
   "scripts": {
     "dev": "chcp 65001 && vite",
     "dev:electron": "electron .",
-
     "build": "vite build && electron-forge make",
     "build:vite": "vite build",
-
     "preview": "vite preview",
-
     "start": "electron-forge start",
     "package": "electron-forge package"
-    
   },
   "dependencies": {
     "@electron-toolkit/utils": "^3.0.0",
     "electron-squirrel-startup": "^1.0.0",
-    "vue": "^3.3.11"
+    "vue": "^3.3.11",
+    "vue-router": "^4.2.5"
   },
   "devDependencies": {
     "@electron-forge/cli": "^7.2.0",

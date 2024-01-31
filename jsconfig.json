@@ -1,0 +1,11 @@
+{
+  "compilerOptions":{
+    "paths":{
+      "@/*": ["./src/*"],
+      "@main/*": ["./src/main/*"],
+      "@preload/*": ["./src/preload/*"],
+      "@render/*": ["./src/render/*"],
+    }    
+  },
+
+}
