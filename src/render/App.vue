@@ -1,12 +1,20 @@
 <script setup>
-
+const x = 1;
+console.log(x);
+if (x === 1) {
+  console.log("test");
+}
 </script>
 
 <template>
   <div>
-    <router-link to="/">Go to Home</router-link>
-    <router-link to="/about">Go to About</router-link>
-    <RouterView></RouterView>
+    <router-link to="/">
+      Go to Home
+    </router-link>
+    <router-link to="/about">
+      Go to About
+    </router-link>
+    <RouterView />
   </div>
 </template>
 
