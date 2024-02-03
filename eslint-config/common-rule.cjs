@@ -6,5 +6,5 @@ module.exports = {
   // 大括号
   "brace-style":["error" ,"1tbs"],
   "comma-spacing":"error",
-  "no-console":"off"
+  "no-console":"off",
 }

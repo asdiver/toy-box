@@ -15,6 +15,13 @@ module.exports = {
     "vue"
   ],
   "rules": Object.assign({
-    
+    // 统一 kebabcase
+    'vue/multi-word-component-names': ['error', {
+      ignores: ['index'],
+    }],
+    // 静止静态行内css
+    'vue/no-static-inline-styles': ['error', {
+      allowBinding: false,
+    }]
   },commonRule)
 }

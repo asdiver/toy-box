@@ -1,7 +1,18 @@
 const { resolve } = require("node:path");
 const { app, BrowserWindow, ipcMain } = require("electron");
 const { electronApp, optimizer, is } = require("@electron-toolkit/utils");
+const { initListen } = require("./listen");
 
+// /**
+//  * @typedef {import("./index1.js").abc} x
+//  */
+// /**
+//  *
+//  * @param {import("./index1.js").abc} m
+//  */
+// function x(m) {
+
+// }
 const createWindow = () => {
   const win = new BrowserWindow({
     width: 800,
@@ -24,10 +35,8 @@ app.on("browser-window-created", (_, window) => {
 });
 
 app.whenReady().then(() => {
-  ipcMain.handle("test", (e, ...arr) => {
-    console.log(arr);
-    return "你好";
-  });
+  // 监听事件
+  initListen(ipcMain);
   createWindow();
 });
 

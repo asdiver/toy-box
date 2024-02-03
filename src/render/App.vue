@@ -1,8 +1,10 @@
 <script setup>
+
 console.log(window.electronAPI);
-window.electronAPI.emit("test", 1, 2, 3).then((...arr) => {
+window.electronAPI.emit("test", { file: "x" }).then((...arr) => {
   console.log(arr);
 });
+
 </script>
 
 <template>

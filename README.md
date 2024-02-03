@@ -36,4 +36,10 @@ vite主要的功能是提供开发服务器调试和前端资源打包，electro
 
 /vite.config.js（浏览器获取资源的方式从http转为file协议 所有资源前缀改为相对路径）
 
-## 其他集成
+## 其他基建
+
+
+## 注意
+
+* electron对esm模块的支持并不完全，所以还是统一用了commonjs
+* 
