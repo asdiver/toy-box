@@ -4,8 +4,9 @@ import vue from "@vitejs/plugin-vue";
 import controlElectron from "./scripts/vite-plugin-electron-dev";
 
 // https://vitejs.dev/config/
-export default defineConfig(({ command, mode, isSsrBuild, isPreview }) => {
+export default defineConfig(() => {
   const baseConfig = {
+
     plugins: [vue(), controlElectron()],
     root: join(process.cwd(), "src", "render"),
     // file协议相对路径
@@ -17,6 +18,9 @@ export default defineConfig(({ command, mode, isSsrBuild, isPreview }) => {
         "@preload": resolve(__dirname, "src", "preload"),
         "@render": resolve(__dirname, "src", "render"),
       },
+    },
+    build: {
+      outDir: "../../dist",
     },
   };
 

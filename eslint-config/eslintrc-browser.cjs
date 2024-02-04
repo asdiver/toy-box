@@ -5,15 +5,12 @@ module.exports = {
     "es6": true
   },
   "ignorePatterns": ["**.cjs"],
-  "extends": ["@fastcoder/eslint-config-base","plugin:vue/vue3-recommended"],
+  "extends": ["@fastcoder/eslint-config-vue"],
 
   "parserOptions": {
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": [
-    "vue"
-  ],
   "rules": Object.assign({
     // 统一 kebabcase
     'vue/multi-word-component-names': ['error', {

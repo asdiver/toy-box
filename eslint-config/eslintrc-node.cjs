@@ -5,7 +5,7 @@ module.exports = {
     "node":true,
     "es6": true
   },
-  "extends": ["@fastcoder/eslint-config-base"],
+  "extends": ["@fastcoder/eslint-config-ts"],
 
   "parserOptions": {
     "ecmaVersion": "latest",
@@ -13,6 +13,6 @@ module.exports = {
   },
   "plugins": [],
   "rules": Object.assign({
-    
+    "@typescript-eslint/no-var-requires": "off"
   },commonRule)
 }

@@ -1,9 +1,9 @@
-<script setup>
+<script lang="ts" setup>
 
-console.log(window.electronAPI);
-window.electronAPI.emit("test", { file: "x" }).then((...arr) => {
-  console.log(arr);
-});
+// console.log(window.electronAPI);
+// window.electronAPI.emit("test", { file: "x" }).then((...arr) => {
+//   console.log(arr);
+// });
 
 </script>
 

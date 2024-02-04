@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    // module: 运行于 Node 的主进程必须遵循 CommonJS 标准
+    "module": "CommonJS",
+    "esModuleInterop": false,
+    "lib": ["ES2015", "DOM"],
+    "moduleResolution": "Node",
+    "strict": true,
+    "resolveJsonModule": true,
+    // noEmit: 重要的配置，这里不被 Vite 接管，必须输出成 .js 文件进行打包
+    "noEmit": false,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    // outDir: 指定 .js 文件输出位置
+    "outDir": "../dist",
+    "composite": true
+  },
+  "include": ["./main/*","./preload/*"]
+}

@@ -1,7 +1,7 @@
-const { resolve } = require("node:path");
-const { app, BrowserWindow, ipcMain } = require("electron");
-const { electronApp, optimizer, is } = require("@electron-toolkit/utils");
-const { initListen } = require("./listen");
+import { resolve } from "node:path";
+import { app, BrowserWindow, ipcMain } from "electron";
+import { optimizer } from "@electron-toolkit/utils";
+import { initListen } from "./listen";
 
 // /**
 //  * @typedef {import("./index1.js").abc} x
@@ -24,9 +24,9 @@ const createWindow = () => {
 
   // 判断生产环境和开发环境
   if (app.isPackaged) {
-    win.loadFile("./src/render/dist/index.html");
+    win.loadFile("./dist/index.html");
   } else {
-    win.loadURL(process.env.VITE_DEV_URL);
+    win.loadURL(process.env.VITE_DEV_URL as string);
   }
 };
 
