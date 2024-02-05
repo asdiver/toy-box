@@ -1,9 +1,8 @@
 <script lang="ts" setup>
-const x = { 
-  mes : "yes",
-};
+const x = {
+  mes: 'yes',
+}
 window.electronAPI.emit.test(x)
-
 </script>
 
 <template>

@@ -38,8 +38,28 @@ vite主要的功能是提供开发服务器调试和前端资源打包，electro
 
 ## 其他基建
 
-
 ## 注意
 
 * electron对esm模块的支持并不完全，所以还是统一用了commonjs
+
+
+
+## 流水账
+
+（文档摆烂了 后续再处理）
+
+* 遵循electron的沙盒安全建议，不直接暴露api
+
+* 配置typescript，使得electron注入window的api可以被编辑器感知
+  
+  见src\render\event.d.ts
+
+* 使用新版本的eslint，antfu的[GitHub - antfu/eslint-config: Anthony](https://github.com/antfu/eslint-config) 开箱即用
+  
+  见eslint.config.js & src\eslint.config.js
+
+* 确定进程通信基建，为每个时间编写对应的type
+  
+  见src\main\listen.ts
+
 * 

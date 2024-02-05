@@ -1,37 +1,36 @@
 {
   "compilerOptions": {
     "target": "ES2020",
-    "useDefineForClassFields": true,
-    "module": "ESNext",
+    "jsx": "preserve",
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
-    "skipLibCheck": true,
+    "useDefineForClassFields": true,
+
+    "baseUrl": "./",
+    "module": "ESNext",
 
     /* Bundler mode */
     "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "preserve",
-
-    /* Linting */
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
-
-    "baseUrl": "./",
     "paths": {
       "@/*": ["./src/*"],
-      "@main/*":["./src/main/*"],
-      "@preload/*":["./src/preload/*"] ,
-      "@render/*": ["./src/render/*"],
-    }
-    
+      "@main/*": ["./src/main/*"],
+      "@preload/*": ["./src/preload/*"],
+      "@render/*": ["./src/render/*"]
+    },
+    "resolveJsonModule": true,
+    "allowImportingTsExtensions": true,
+    /* Linting */
+    "strict": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noEmit": true,
+    "isolatedModules": true,
+    "skipLibCheck": true
+
   },
-  
-  "include": ["src/render/**/*.ts","src/render/**/*.d.ts", "src/render/**/*.tsx", "src/render/**/*.vue"],
+
   "references": [
-    { "path": "./src/tsconfig.electron.json"},
-    { "path": "./tsconfig.vite.json" }]
+    { "path": "./src/tsconfig.electron.json" },
+    { "path": "./tsconfig.vite.json" }],
+  "include": ["src/render/**/*.ts", "src/render/**/*.d.ts", "src/render/**/*.tsx", "src/render/**/*.vue"]
 }

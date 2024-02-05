@@ -1,9 +1,7 @@
-import type {ipcEvent} from "../preload/index"
-
-
+import type { ipcEvent } from '../preload/index'
 
 declare global {
   interface Window {
-    electronAPI:ipcEvent
+    electronAPI: ipcEvent
   }
 }
