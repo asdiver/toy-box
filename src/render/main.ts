@@ -1,3 +1,5 @@
+/// <reference path="./event.d.ts" />
+
 import { createApp } from "vue";
 import router from "@render/router/index.ts";
 

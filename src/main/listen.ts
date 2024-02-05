@@ -1,11 +1,6 @@
-interface ListenEventMap {
-  [key: string]: (event: Electron.IpcMainInvokeEvent, ...args: any[]) => any;
-}
-
-// -------------
-
+// 存放事件处理
 const listenEvent: ListenEventMap = {
-  test(_e: Electron.IpcMainInvokeEvent, data: {}) {
+  test(_e: Electron.IpcMainInvokeEvent, data: TestReq) {
     console.log(data);
     return { mes: "你好" };
   },
@@ -23,3 +18,17 @@ export {
 
   initListen,
 };
+
+// code-------------type
+
+interface ListenEventMap {
+  [key: string]: (event: Electron.IpcMainInvokeEvent, ...args: any[]) => any;
+}
+
+export interface TestReq {
+  mes: string;
+}
+
+export interface TestRes {
+  mes: string;
+}

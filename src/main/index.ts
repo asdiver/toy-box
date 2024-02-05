@@ -3,22 +3,13 @@ import { app, BrowserWindow, ipcMain } from "electron";
 import { optimizer } from "@electron-toolkit/utils";
 import { initListen } from "./listen";
 
-// /**
-//  * @typedef {import("./index1.js").abc} x
-//  */
-// /**
-//  *
-//  * @param {import("./index1.js").abc} m
-//  */
-// function x(m) {
-
-// }
 const createWindow = () => {
   const win = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
       preload: resolve(__dirname, "..", "preload", "index.js"),
+      sandbox: false,
     },
   });
 

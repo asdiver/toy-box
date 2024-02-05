@@ -1,9 +1,8 @@
 <script lang="ts" setup>
-
-// console.log(window.electronAPI);
-// window.electronAPI.emit("test", { file: "x" }).then((...arr) => {
-//   console.log(arr);
-// });
+const x = { 
+  mes : "yes",
+};
+window.electronAPI.emit.test(x)
 
 </script>
 

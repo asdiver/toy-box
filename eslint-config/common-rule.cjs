@@ -10,4 +10,6 @@ module.exports = {
   "brace-style":["error" ,"1tbs"],
   "comma-spacing":"error",
   "no-console":"off",
+  "brace-style": ["error", "1tbs", { "allowSingleLine": true }],
+  "@typescript-eslint/brace-style":"off"
 }

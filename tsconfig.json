@@ -21,7 +21,6 @@
     "noFallthroughCasesInSwitch": true,
 
     "baseUrl": "./",
-    // todo
     "paths": {
       "@/*": ["./src/*"],
       "@main/*":["./src/main/*"],
@@ -31,7 +30,7 @@
     
   },
   
-  "include": ["src/render/**/*.ts", "src/render/**/*.tsx", "src/render/**/*.vue"],
+  "include": ["src/render/**/*.ts","src/render/**/*.d.ts", "src/render/**/*.tsx", "src/render/**/*.vue"],
   "references": [
     { "path": "./src/tsconfig.electron.json"},
     { "path": "./tsconfig.vite.json" }]
