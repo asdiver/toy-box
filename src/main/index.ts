@@ -3,6 +3,7 @@ import process from 'node:process'
 import { BrowserWindow, app, ipcMain } from 'electron'
 import { optimizer } from '@electron-toolkit/utils'
 import { initListen } from './listen'
+import { dispatch, setWebContents } from './dispatch'
 
 function createWindow() {
   const win = new BrowserWindow({
@@ -23,6 +24,11 @@ function createWindow() {
 
 app.on('browser-window-created', (_, window) => {
   optimizer.watchWindowShortcuts(window)
+  setWebContents(window.webContents)
+  // test
+  window.webContents.on('did-finish-load', () => {
+    dispatch('test', { mes: 'dispatch success' })
+  })
 })
 
 app.whenReady().then(() => {

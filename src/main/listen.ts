@@ -1,4 +1,4 @@
-// 存放事件处理
+// 编写事件处理
 const listenEvent: ListenEventMap = {
   test(_e: Electron.IpcMainInvokeEvent, data: TestReq) {
     console.log(data)
@@ -8,8 +8,7 @@ const listenEvent: ListenEventMap = {
 
 function initListen(ipcMain: Electron.IpcMain) {
   // 遍历监听
-  for (const key in listenEvent)
-    ipcMain.handle(key, listenEvent[key])
+  for (const key in listenEvent) ipcMain.handle(key, listenEvent[key])
 }
 
 export {

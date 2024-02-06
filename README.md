@@ -42,8 +42,6 @@ vite主要的功能是提供开发服务器调试和前端资源打包，electro
 
 * electron对esm模块的支持并不完全，所以还是统一用了commonjs
 
-
-
 ## 流水账
 
 （文档摆烂了 后续再处理）
@@ -61,5 +59,15 @@ vite主要的功能是提供开发服务器调试和前端资源打包，electro
 * 确定进程通信基建，为每个时间编写对应的type
   
   见src\main\listen.ts
+
+* 主进程和渲染进程中双向通信
+  
+  在src\preload\index.ts进行注册；
+  
+  在src\main\listen.ts编写渲染进程到主进程的通知
+  
+  在src\main\dispatch.ts编写主进程到渲染进程的通知
+  
+  **完整的typescript提示** 在src\render\App.vue测试成功
 
 * 

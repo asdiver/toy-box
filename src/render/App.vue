@@ -3,6 +3,10 @@ const x = {
   mes: 'yes',
 }
 window.electronAPI.emit.test(x)
+
+window.electronAPI.on.test((data) => {
+  console.log(data)
+})
 </script>
 
 <template>
