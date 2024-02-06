@@ -16,7 +16,7 @@ const exposeEmit = {
 
 const exposeOn: ExposeOnType = {
   // 注册render监听
-  test(callback) { ipcRenderer.on('test', (_event, value: NoticRender['test']) => callback(value)) },
+  test(callback) { ipcRenderer.on('test', (_event, value) => callback(value)) },
   test1(callback) { ipcRenderer.on('test1', (_event, value) => callback(value)) },
 }
 
