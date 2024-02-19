@@ -1,32 +1,43 @@
 <script lang="ts" setup>
-const x = {
-  mes: 'yes',
-}
-window.electronAPI.emit.test(x)
+import rootNavigationVue from '@render/views/root-navigation.vue'
 
-window.electronAPI.on.test((data) => {
-  console.log(data)
-})
+// const x = {
+//   mes: 'yes',
+// }
+// window.electronAPI.emit.test(x)
+
+// window.electronAPI.on.test((data) => {
+//   console.log(data)
+// })
 </script>
 
 <template>
-  <div>
-    <router-link to="/">
+  <div class="root">
+    <rootNavigationVue />
+    <div class="root-router">
+      <RouterView />
+    </div>
+    <!-- <router-link to="/">
       Go to Home
     </router-link>
     <router-link to="/about">
       Go to About
     </router-link>
-    <RouterView />
+    <RouterView /> -->
   </div>
 </template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+<style lang="scss" scoped>
+.root{
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+
+  &-router{
+    flex-grow: 1;
+  }
+
 }
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
