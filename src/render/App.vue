@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import rootNavigationVue from '@render/views/root-navigation.vue'
+import rootNavigationVue from '@render/views/root-navigation/index.vue'
 
 // const x = {
 //   mes: 'yes',
@@ -17,13 +17,6 @@ import rootNavigationVue from '@render/views/root-navigation.vue'
     <div class="root-router">
       <RouterView />
     </div>
-    <!-- <router-link to="/">
-      Go to Home
-    </router-link>
-    <router-link to="/about">
-      Go to About
-    </router-link>
-    <RouterView /> -->
   </div>
 </template>
 
@@ -36,6 +29,7 @@ import rootNavigationVue from '@render/views/root-navigation.vue'
 
   &-router{
     flex-grow: 1;
+    padding: 7px;
   }
 
 }

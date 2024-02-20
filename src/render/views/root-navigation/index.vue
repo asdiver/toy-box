@@ -1,41 +1,24 @@
 <script lang="ts" setup>
 import navigationIcon from '@render/components/navigation-icon/index.vue'
 import { reactive, ref } from 'vue'
+import { useRouter } from 'vue-router'
+import { routes } from '@render/router/index'
 
-// todo 滚动样式处理
 const menuList = reactive([
   {
-    size: 110,
+    size: 95,
     name: '爬虫管理',
-    iconClass: 'icon-pachong',
+    iconClass: 'icon-pachong1',
   },
   {
-    size: 110,
-    name: '爬虫管理',
-    iconClass: 'icon-pachong',
-  },
-  {
-    size: 110,
-    name: '爬虫管理',
-    iconClass: 'icon-pachong',
-  },
-  {
-    size: 110,
-    name: '爬虫管理',
-    iconClass: 'icon-pachong',
-  },
-  {
-    size: 110,
-    name: '爬虫管理',
-    iconClass: 'icon-pachong',
-  },
-  {
-    size: 110,
-    name: '爬虫管理',
-    iconClass: 'icon-pachong',
+    size: 95,
+    name: '设置',
+    iconClass: 'icon-shezhi',
   },
 
 ])
+
+const router = useRouter()
 
 const selectIndex = ref(0)
 /**
@@ -44,6 +27,7 @@ const selectIndex = ref(0)
  */
 function switchIndex(index: number) {
   selectIndex.value = index
+  router.push(routes[index])
 }
 </script>
 
@@ -64,5 +48,16 @@ function switchIndex(index: number) {
 .navigation{
   width: 110px;
   background-color: #f4f4f4;
+  height: 100vh;
+
+  overflow-y: auto;
+
+  &::-webkit-scrollbar{
+    width: 3px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #ccc; // 滑块颜色
+    border-radius: 5px; // 滑块圆角
+  }
 }
 </style>

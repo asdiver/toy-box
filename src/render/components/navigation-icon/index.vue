@@ -32,13 +32,13 @@ watchEffect(() => {
 
 // 选中样式
 const showNameStyle = computed(() => {
-  return { fontSize: show.value ? '16px' : '0px' }
+  return { fontSize: show.value ? 'inherit' : '0px' }
 })
 
 const iconStyle = computed(() => {
   return {
-    width: `${props.value.size}px`,
-    // height: `${props.value.size}px`,
+    width: `100%`,
+    minHeight: `${props.value.size}px`,
     backgroundColor: show.value ? '#e9e9feaa' : 'transparent',
     // color: show.value ? 'white' : '#000000',
   }
