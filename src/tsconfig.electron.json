@@ -17,5 +17,5 @@
     "outDir": "../dist",
     "esModuleInterop": true
   },
-  "include": ["./main/*", "./preload/*"]
+  "include": ["./main/**/*.ts", "./preload/**/*.ts"]
 }

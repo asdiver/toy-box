@@ -1,8 +1,8 @@
 import { contextBridge, ipcRenderer } from 'electron/renderer'
 
 // only can use typescript type because electron sanbox
-import type { TestReq, TestRes } from '../main/listen'
-import type { NoticRender } from '../main/dispatch'
+import type { TestReq, TestRes } from '../main/ipc/listen'
+import type { NoticRender } from '../main/ipc/dispatch'
 
 type ExposeOnType = {
   [K in keyof NoticRender]: (callback: (data: NoticRender[K]) => void) => void;

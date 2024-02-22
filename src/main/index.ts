@@ -2,8 +2,8 @@ import { resolve } from 'node:path'
 import process from 'node:process'
 import { BrowserWindow, app, ipcMain } from 'electron'
 
-import { initListen } from './listen'
-import { dispatch, setWebContents } from './dispatch'
+import { initListen } from './ipc/listen'
+import { dispatch, setWebContents } from './ipc/dispatch'
 
 function createWindow() {
   const win = new BrowserWindow({

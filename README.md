@@ -36,38 +36,46 @@ vite主要的功能是提供开发服务器调试和前端资源打包，electro
 
 /vite.config.js（浏览器获取资源的方式从http转为file协议 所有资源前缀改为相对路径）
 
-## 其他基建
-
 ## 注意
 
 * electron对esm模块的支持并不完全，所以还是统一用了commonjs
 
-## 流水账
+## 基建流水账
 
 （文档摆烂了 后续再处理）
 
 * 遵循electron的沙盒安全建议，不直接暴露api
 
 * 配置typescript，使得electron注入window的api可以被编辑器感知
-  
+
   见src\render\event.d.ts
 
 * 使用新版本的eslint，antfu的[GitHub - antfu/eslint-config: Anthony](https://github.com/antfu/eslint-config) 开箱即用
-  
+
   见eslint.config.js & src\eslint.config.js
 
 * 确定进程通信基建，为每个时间编写对应的type
-  
+
   见src\main\listen.ts
 
 * 主进程和渲染进程中双向通信
-  
+
   在src\preload\index.ts进行注册；
-  
-  在src\main\listen.ts编写渲染进程到主进程的通知
-  
-  在src\main\dispatch.ts编写主进程到渲染进程的通知
-  
+
+  在src\main\ipc\listen.ts编写渲染进程到主进程的通知
+
+  在src\main\ipc\dispatch.ts编写主进程到渲染进程的通知
+
   **完整的typescript提示** 在src\render\App.vue测试成功
 
-* 
+## toy-box功能点
+
+### 爬虫
+
+* crawler（node爬虫）
+
+### 其他三方库
+
+* electron-store（node数据持久化）
+
+* Ant Design Vue（ui库）
