@@ -18,6 +18,8 @@ function jsonHandle(reptile: Reptile) {
         // todo 通知操作系统错误
       }
       else {
+        console.log(res)
+
         // dom
         // if (res.$) {
 
@@ -42,7 +44,7 @@ const reptiles = reptileStoreControl.getReptiles()
 const reptileMap = new Map<Reptile, NodeJS.Timeout | null>()
 
 function reptileMapSet(target: Reptile) {
-  const timeout = target.open ? setInterval(() => { crawler.queue(jsonHandle(target)) }) : null
+  const timeout = target.open ? setInterval(() => crawler.queue(jsonHandle(target)), target.interval) : null
   reptileMap.set(target, timeout)
 }
 
@@ -69,22 +71,20 @@ function delReptiles(key: string) {
 
   reptileStoreControl.delReptiles(key)
 }
+/**
+ * 包含 新增和 覆盖（暴力更新）
+ */
 function setReptiles(key: string, target: Reptile) {
+  // 覆盖
+  if (reptiles[key])
+    delReptiles(key)
   // this file
   reptiles[key] = target
   reptileMapSet(target)
   // store
   reptileStoreControl.setReptiles(key, target)
 }
-/**
- * 暴力删除和更新 不直接通过修改具体属性
- * @param key 
- * @param target 
- */
-function updateReptiles(key: string, target: Reptile) {
-  delReptiles(key)
-  setReptiles(key, target)
-}
+
 // todo渲染端处理请求头字符串
 // url 请求头字符串（渲染层转化为对象） 爬虫间隔 是否开启 解析数据为json或者html  通知依据（json为目标属性 html为选择器目标元素）   跳转的目标url
 // const arr = cookieStr.split('\n')
@@ -100,5 +100,4 @@ export {
   getReptiles,
   delReptiles,
   setReptiles,
-  updateReptiles,
 }

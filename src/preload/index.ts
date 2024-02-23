@@ -1,7 +1,8 @@
 import { contextBridge, ipcRenderer } from 'electron/renderer'
 
 // only can use typescript type because electron sanbox
-import type { TestReq, TestRes } from '../main/ipc/listen'
+import type { DelReptilesRes, SetReptilesRes, TestReq, TestRes } from '../main/ipc/listen'
+import type { Reptiles } from '../main/store/reptile'
 import type { NoticRender } from '../main/ipc/dispatch'
 
 type ExposeOnType = {
@@ -11,6 +12,10 @@ type ExposeOnType = {
 // --------------
 const exposeEmit = {
   // 注册render请求
+  getReptiles(): Promise<Reptiles> { return ipcRenderer.invoke('getReptiles', {}) },
+  delReptiles(data: DelReptilesRes): Promise<null> { return ipcRenderer.invoke('delReptiles', data) },
+  setReptiles(data: SetReptilesRes): Promise<null> { return ipcRenderer.invoke('setReptiles', data) },
+
   test(data: TestReq): Promise<TestRes> { return ipcRenderer.invoke('test', data) },
 }
 
