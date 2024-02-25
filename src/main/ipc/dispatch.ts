@@ -5,7 +5,7 @@
  */
 interface NoticRender {
   test: { mes: string }
-  test1: { mes1: string }
+  notice: { title: string, body: string }
 }
 
 let webContents: Electron.WebContents

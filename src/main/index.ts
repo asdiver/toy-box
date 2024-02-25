@@ -5,10 +5,13 @@ import { BrowserWindow, app, ipcMain } from 'electron'
 import { initListen } from './ipc/listen'
 import { dispatch, setWebContents } from './ipc/dispatch'
 
+import { noticeGetWin } from './untils/notification/index'
+
 function createWindow() {
   const win = new BrowserWindow({
     width: 1000,
     height: 700,
+    icon: './src/main/static/工具箱.png',
     webPreferences: {
       preload: resolve(__dirname, '..', 'preload', 'index.js'),
       sandbox: false,
@@ -23,7 +26,17 @@ function createWindow() {
     win.loadFile('./dist/index.html')
   else
     win.loadURL(process.env.VITE_DEV_URL as string)
+
+  return win
 }
+
+app.whenReady().then(() => {
+  // 监听事件
+  initListen(ipcMain)
+  const win = createWindow()
+  noticeGetWin(win)
+  app.setAppUserModelId('asdiver.toybox')
+})
 
 app.on('browser-window-created', (_, window) => {
   // 开发环境f12控制台
@@ -49,12 +62,6 @@ app.on('browser-window-created', (_, window) => {
   window.webContents.on('did-finish-load', () => {
     dispatch('test', { mes: 'dispatch success' })
   })
-})
-
-app.whenReady().then(() => {
-  // 监听事件
-  initListen(ipcMain)
-  createWindow()
 })
 
 app.on('window-all-closed', () => {

@@ -3,9 +3,10 @@ import Crawler from 'crawler'
 import { reptileStoreControl } from '../store/index'
 import type { Reptile } from '../store/index'
 
+import { notice } from '../untils/notification/index'
+
 const crawler = new Crawler({
 })
-
 function jsonHandle(reptile: Reptile) {
   const { headers, uri, target } = reptile
   return {
@@ -13,12 +14,14 @@ function jsonHandle(reptile: Reptile) {
     jQuery: target === 'html',
     headers,
     // callback可以复用
-    callback(error, res, done) {
+    callback(error, _res, done) {
       if (error) {
         // todo 通知操作系统错误
       }
       else {
-        console.log(res)
+        notice('sadsd', 'sds')
+
+        // console.log(res)
 
         // dom
         // if (res.$) {
@@ -26,7 +29,7 @@ function jsonHandle(reptile: Reptile) {
         // }else{
 
         // }
-        console.log('你好')
+        // console.log('你好')
 
         // const $ = res.$;
         // $ 默认为 Cheerio 解析器
